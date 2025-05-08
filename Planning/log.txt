@@ -1,0 +1,10 @@
+This is just a log for my personal documentation. I want to use this as thoughts and concerns beyond commitments made through the course 
+of this project.
+
+
+Day one note one:
+IOS app is up first and I am now asking myself how I want to format it. This is supposed to be based on card games.
+So I am going to stick with poker as I have always known. The question is where do I want to go from there.
+Solidity is going to help me with just that...but the problem remains. 
+
+
