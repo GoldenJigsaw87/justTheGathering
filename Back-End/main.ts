@@ -19,7 +19,7 @@ database: 'Gathering'
 connection.connect((err)=>{
   if (err) console.error(err)
     console.log('eges');
-connection.query("SELECT * FROM `theGathering` WHERE `Name` = ? AND Password = ?", )
+connection.query("SELECT * FROM `theGathering` WHERE `Name` = ? AND Password = ?", [info[0], info[1]], (err, result)=>{
 
 
 
@@ -27,4 +27,6 @@ connection.query("SELECT * FROM `theGathering` WHERE `Name` = ? AND Password = ?
 if (err) throw err
 console.log(result, "res");
 response.send(result)
+})
+
 })
