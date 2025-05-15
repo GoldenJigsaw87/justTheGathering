@@ -3,30 +3,51 @@
 import express from "npm:express";
 import mysql from "npm:mysql2";
 import cors from "npm:cors";
+
 const app = express();
-app.listen(5050)
-console.log(`Active on 5050`)
+const PORT = 3000; // Use one port only
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
+
+// MySQL connection
 const connection = mysql.createConnection({
-host: 'localhost',
-user: 'web',
-password: 'someonesPassword',
-database: 'Gathering'
-})
+  host: 'localhost',
+  user: 'web',
+  password: 'someonesPassword',
+  database: 'Gathering',
+});
 
-connection.connect((err)=>{
-  if (err) console.error(err)
-    console.log('eges');
-connection.query("SELECT * FROM `theGathering` WHERE `Name` = ? AND Password = ?", [info[0], info[1]], (err, result)=>{
+connection.connect((err) => {
+  if (err) {
+    return console.error("Connection error:", err);
+  }
+  console.log('Connected to MySQL database');
+});
 
+// Example POST endpoint to update a meeting
+app.post("/update", (req, res) => {
+  const { meetingTime, turnomentName, address, userName, theme } = req.body;
+  // INSERT INTO `theGathering`(`meetingTime`, `turnomentName`, `address`, `userName`, `theme`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')
+  const sql = `
+    UPDATE theGathering 
+    SET Name = ?, Password = ?, meetingLocation = ?, meetingTime = ?
+    WHERE id = ?`; // Change to match your table's unique identifier
 
+  connection.query(
+    sql,
+    [theme, userName, address, meetingTime, turnomentName],
+    (err, result) => {
+      if (err) {
+        console.error("Query error:", err);
+        return res.status(500).send("Database error");
+      }
+      res.send(result);
+    }
+  );
+});
 
-
-if (err) throw err
-console.log(result, "res");
-response.send(result)
-})
-
-})
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

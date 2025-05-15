@@ -9,7 +9,9 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <div className="head">
        <h1>Welcome!</h1>
+       </div>
        <div>
        <h3>Would you like to make an update?</h3>
        <div className="add">

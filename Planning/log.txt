@@ -13,3 +13,5 @@ Day two note one: I have gone ahead and started making a back end portion and ye
 Day two note two: Starting with some of the ios. Don't know why but my button feature was causing issues that I really wasn't sure how to fix but I figured it out.
 Note to self if I actually need to go back and code the game portion then I may need to update the server side of things. 
 Perhaps a new php file server is required. If that is the case I will need to add player information in order to allow a player profile to be accessable.
+
+Day three note one: Had to make some adjustments so that the project fit the directions better. 
