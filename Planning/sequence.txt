@@ -1,0 +1,7 @@
+title justTheGathering
+
+Admin->Accont: as an admain I want to be able to log in/out of my account
+Admin->addUser: as an admin I want to arrange new users
+Admin->newAdmin: as an admin I want to add other admins
+User->meetings: as a user I want to add/arrange meetups
+
